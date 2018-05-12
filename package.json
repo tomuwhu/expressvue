@@ -1,0 +1,23 @@
+{
+  "name": "expressvue",
+  "version": "1.0.0",
+  "description": "vue with express",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomuwhu/expressvue.git"
+  },
+  "author": "Dr. Németh Tamás",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomuwhu/expressvue/issues"
+  },
+  "homepage": "https://github.com/tomuwhu/expressvue#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  }
+}

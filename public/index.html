@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="bv/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="bv/bootstrap-vue.css" />
+<script src="bv/vue.js"></script>
+<script src="bv/polyfill.min.js"></script>
+<script src="bv/bootstrap-vue.js"></script>
+<body>
+  <div id="app" class="row text-center">
+    <div class="col"></div>
+    <div class="col-md-6 col-lg-4">
+    <b-alert variant="danger" show>
+      <b-card><h3>Bevásárló lista</h3></b-card>
+      <hr>
+      <b-input v-model="i1" @keyup.native.enter="f()"></b-input><br>
+    </b-alert>
+    <hr>
+    <b-btn @click="f()">felvesz</b-btn>
+    <hr>
+    <b-alert variant="success" show>
+      <div class="row">
+        <b-card style="width:auto;" :key="k" v-for="(x,k) in tsz">{{k+1}}: {{x}}</b-card>
+      </div>
+    </b-alert>
+    <b-btn @click="clear" variant="danger">mindent töröl</b-btn>
+  </div>
+  <div class="col"></div>
+  </div>
+  <script>
+  var init=localStorage.getItem('lista')
+  if (init) init=init.split('|')
+  else init =[]
+  var app = new Vue({
+    el: '#app',
+    data: {
+      i1: '',
+      t1: init
+    },
+    methods: {
+      f() {
+        if (this.i1.length>0) {
+          this.t1.push(this.i1)
+          this.t1.sort( (a,b)=>a.localeCompare(b) )
+          this.i1=''
+          localStorage.setItem('lista', this.t1.join('|'))
+        }
+      },
+      clear() {
+        this.i1=''
+        this.t1=[]
+        localStorage.clear()
+      }
+    },
+    computed: {
+      tsz() {
+        if (this.i1.length>0)
+          return this.t1.filter( a => {
+               var patt = new RegExp( `^${this.i1}`, 'i' )
+               return patt.test( a )
+          } )
+        else return this.t1
+      }
+    }
+  })
+  </script>
+</body>
+</html>
