@@ -11,15 +11,8 @@ app
         secret: 'ABC123', cookie: { maxAge: 600000 }
   }))
 
-app.get( '/', (req,res) => {
-  res.sendFile('index.html')
-} )
+  .get( '/', (req,res) => {
+    res.sendFile('index.html')
+  } )
 
-app.post( '/', (req,res) => {
-  //console.log(req.body)
-  if (!req.session.count) req.session.count=1
-  else req.session.count++
-  res.send( 'szeva: '+req.session.count )
-})
-
-app.listen(3000)
+  .listen(3000)

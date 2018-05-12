@@ -8,69 +8,20 @@
 <script src="bv/polyfill.min.js"></script>
 <script src="bv/bootstrap-vue.js"></script>
 <body>
-  <div id="app" class="row text-center">
-    <div class="col"></div>
-    <div class="col-md-6 col-lg-4">
-    <b-alert variant="danger" show>
-      <b-card><h3>Bevásárló lista</h3></b-card>
-      <hr>
-      <b-input v-model="i1" @keyup.native.enter="f()"></b-input><br>
-    </b-alert>
-    <hr>
-    <b-btn @click="f()">felvesz</b-btn>
-    <hr>
-    <b-alert variant="success" show>
-      <div class="row">
-        <b-card style="width:auto;" :key="k" v-for="(x,k) in tsz">{{k+1}}: {{x}}</b-card>
-      </div>
-    </b-alert>
-    <b-btn @click="clear" variant="danger">mindent töröl</b-btn>
-    <b-btn @click="ax" variant="danger">beküld</b-btn>
-  </div>
-  <div class="col"></div>
+  <div id="app" class="text-center">
+    {{hv}}
   </div>
   <script>
-  var init=localStorage.getItem('lista')
-  if (init) init=init.split('|')
-  else init =[]
   var app = new Vue({
     el: '#app',
     data: {
-      i1: '',
-      t1: init
+      hv: 'Hello Vue!'
     },
     methods: {
-      f() {
-        if (this.i1.length>0) {
-          this.t1.push(this.i1)
-          this.t1.sort( (a,b)=>a.localeCompare(b) )
-          this.i1=''
-          localStorage.setItem('lista', this.t1.join('|'))
-        }
-      },
-      clear() {
-        this.i1=''
-        this.t1=[]
-        localStorage.clear()
-      },
-      ax() {
-        axios
-          .post('/',{adat: this.t1})
-          .then( resp => {
-              //{ data } = resp
-              console.log(resp.data)
-          } )
-      }
+
     },
     computed: {
-      tsz() {
-        if (this.i1.length>0)
-          return this.t1.filter( a => {
-               var patt = new RegExp( `^${this.i1}`, 'i' )
-               return patt.test( a )
-          } )
-        else return this.t1
-      }
+
     }
   })
   </script>
