@@ -3,6 +3,7 @@
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="bv/bootstrap.min.css" />
 <link type="text/css" rel="stylesheet" href="bv/bootstrap-vue.css" />
+<script src="bv/axios.min.js"></script>
 <script src="bv/vue.js"></script>
 <script src="bv/polyfill.min.js"></script>
 <script src="bv/bootstrap-vue.js"></script>
@@ -24,6 +25,7 @@
       </div>
     </b-alert>
     <b-btn @click="clear" variant="danger">mindent töröl</b-btn>
+    <b-btn @click="ax" variant="danger">beküld</b-btn>
   </div>
   <div class="col"></div>
   </div>
@@ -50,6 +52,14 @@
         this.i1=''
         this.t1=[]
         localStorage.clear()
+      },
+      ax() {
+        axios
+          .post('/',{adat: this.t1})
+          .then( resp => {
+              //{ data } = resp
+              console.log(resp.data)
+          } )
       }
     },
     computed: {
