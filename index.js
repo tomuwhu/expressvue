@@ -7,9 +7,7 @@ app.use( express.static(path.join(__dirname, 'public')) )
 app.use( bodyParser.urlencoded(bpo) )
 
 app.get( '/', (req,res) => {
-
   res.sendFile('index.html')
-
 } )
 
 app.listen(3000)
