@@ -1,9 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const session = require('express-session')
-const app = express()
 const path = require('path')
-app
+express()
   .use( express.static(path.join(__dirname, 'public')) )
   .use( bodyParser.json() )
   .use(session({
