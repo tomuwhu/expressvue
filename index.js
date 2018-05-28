@@ -10,8 +10,8 @@ express()
         secret: 'ABC123', cookie: { maxAge: 600000 }
   }))
 
-  .get( '/', (req,res) => {
-    res.sendFile('index.html')
+  .get( '/cucc', (req,res) => {
+    res.sendFile(__dirname+'/private/kiskutya.html')
   } )
 
   .listen(3000)
