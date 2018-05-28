@@ -7,27 +7,15 @@
 <script src="bv/polyfill.min.js"></script><script src="bv/bootstrap-vue.js"></script>
 <body>
   <div id="app" class="text-center">
-    <bc>{{hv}}</bc>
+     <b-input v-model="hv"></b-input><br>
+     <h2>{{hv}}</h2>
+     {{hv}} {{hv}}d asd asdsa
   </div>
   <script>
-  Vue.component('bc', {
-      data() {
-          return {
-            x:1
-          }
-      },
-      template: `<div><slot></slot></div>`
-  })
   var app = new Vue({
     el: '#app',
     data: {
       hv: 'Hello Vue!',
-    },
-    methods: {
-
-    },
-    computed: {
-
     }
   })
   </script>
