@@ -18,8 +18,8 @@ express()
         secret: 'ABC123', cookie: { maxAge: 600000 }
   }))
 
-  .get( '/cucc', (req,res) => {
-    res.sendFile('kiskutya.html',sfop)
+  .get( '/', (req,res) => {
+    res.sendFile('root.html',sfop)
   } )
 
   .listen(3000)
