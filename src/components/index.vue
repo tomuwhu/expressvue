@@ -3,9 +3,11 @@
     <h1>{{ msg }}</h1><hr>
     <div>
       <b-button :variant="vt[x % vt.length]"
-                @click="send">Gomb {{x}}</b-button>
+                @click="send">Gomb {{ x % vt.length }}</b-button>
     </div><hr>
-    <pre><code>&ltb-button variant = "{{ vt[x % vt.length] }}"&gt</code></pre>
+    <pre><code>&ltb-button variant = "{{ vt[x % vt.length] }}"&gtGomb{{ x % vt.length }}&lt/b-button&gt</code></pre>
+    <hr>
+    {{ x }}
   </div>
 </template>
 
@@ -34,7 +36,7 @@ export default {
 
 <style scoped>
 h1 {
-  margin: 40px 0 0;
+  margin: 20px 0 0;
 }
 a {
   color: #42b983;
