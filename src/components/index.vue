@@ -2,9 +2,10 @@
   <div class="hello">
     <h1>{{ msg }}</h1><hr>
     <div>
-      <b-button variant="success"
+      <b-button :variant="vt[x % vt.length]"
                 @click="send">Gomb {{x}}</b-button>
-    </div>
+    </div><hr>
+    <pre><code>&ltb-button variant = "{{ vt[x % vt.length] }}"&gt</code></pre>
   </div>
 </template>
 
@@ -14,7 +15,8 @@ export default {
   name: 'mvc',
   data() {
     return {
-      x: 1
+      x: 1,
+      vt: ['primary','secondary','success','warning','danger','link','outline-primary', 'outline-secondary', 'outline-success', 'outline-warning', 'outline-danger']
     }
   },
   props: {
