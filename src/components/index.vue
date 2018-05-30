@@ -5,7 +5,7 @@
       <b-button :variant="vt[x % vt.length]"
                 @click="send">Gomb {{ x % vt.length }}</b-button>
     </div><hr>
-    <pre><code>&lt;b-button variant = "{{ vt[x % vt.length] }}"&gt;Gomb{{ x % vt.length }}&lt;/b-button&gt;</code></pre>
+    <pre><code>&lt;b-button variant = "{{ vt[x % vt.length] }}"&gt;Gomb {{ x % vt.length }}&lt;/b-button&gt;</code></pre>
     <hr>
     {{ x }}
   </div>
