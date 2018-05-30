@@ -30,6 +30,11 @@ export default {
         .post('http://localhost:3000',{ a: 1 })
         .then(resp => this.x=resp.data.count)
     }
+  },
+  mounted() {
+    axios
+      .post('http://localhost:3000',{ a: 1 })
+      .then(resp => this.x=resp.data.count)
   }
 }
 </script>
