@@ -5,7 +5,7 @@
       <b-button :variant="vt[x % vt.length]"
                 @click="send">Gomb {{ x % vt.length }}</b-button>
     </div><hr>
-    <pre><code>&lt;b-button variant = "{{ vt[x % vt.length] }}"&gt;Gomb {{ x % vt.length }}&lt;/b-button&gt;</code></pre>
+    <pre><code>{{ gombhtml }}</code></pre>
     <hr>
     {{ x }}
   </div>
@@ -18,7 +18,19 @@ export default {
   data() {
     return {
       x: 1,
-      vt: ['primary','secondary','success','warning','danger','link','outline-primary', 'outline-secondary', 'outline-success', 'outline-warning', 'outline-danger']
+      vt: [
+        'primary',
+        'secondary',
+        'success',
+        'warning',
+        'danger',
+        'link',
+        'outline-primary',
+        'outline-secondary',
+        'outline-success',
+        'outline-warning',
+        'outline-danger'
+      ]
     }
   },
   props: {
@@ -35,6 +47,17 @@ export default {
     axios
       .post('http://localhost:3000',{ a: 1 })
       .then(resp => this.x=resp.data.count)
+  },
+  computed: {
+    gombhtml() {
+      return `<b-button variant = "${
+          this.vt[
+            this.x % this.vt.length
+          ]
+      }}">Gomb ${
+          this.x % this.vt.length
+      }</b-button>`
+    }
   }
 }
 </script>
