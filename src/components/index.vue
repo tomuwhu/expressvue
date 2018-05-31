@@ -54,7 +54,7 @@ export default {
           this.vt[
             this.x % this.vt.length
           ]
-      }}">Gomb ${
+      }">Gomb ${
           this.x % this.vt.length
       }</b-button>`
     }
