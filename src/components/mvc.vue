@@ -10,9 +10,9 @@
         @click =
           "send()"
       >Gomb {{
-               x % vt
-                    .length
-            }}</b-button>
+         x % vt
+              .length
+      }}</b-button>
     </div><hr>
     <pre><code>{{
       gombhtml
