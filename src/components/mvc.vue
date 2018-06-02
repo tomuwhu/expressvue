@@ -1,13 +1,26 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1><hr>
+    <h1>{{
+      msg
+    }}</h1><hr>
     <div>
-      <b-button :variant="vt[x % vt.length]"
-                @click="send">Gomb {{ x % vt.length }}</b-button>
+      <b-button
+        :variant =
+          "vt[x % vt.length]"
+        @click =
+          "send()"
+      >Gomb {{
+               x % vt
+                    .length
+            }}</b-button>
     </div><hr>
-    <pre><code>{{ gombhtml }}</code></pre>
+    <pre><code>{{
+      gombhtml
+    }}</code></pre>
     <hr>
-    <h2>{{ x }}</h2>
+    <h2>{{
+      x
+    }}</h2>
   </div>
 </template>
 
@@ -37,24 +50,54 @@ export default {
   },
   methods: {
     send() {
-      this.axios
-        .post('http://localhost:3000',{ a: 1 })
-        .then(resp => this.x=resp.data.count)
+      this
+        .axios
+        .post(
+          'http://localhost:3000',
+          {
+            a: 1
+          }
+        )
+        .then(
+          resp =>
+            this
+              .x = resp
+                    .data
+                    .count
+        )
     }
   },
   mounted() {
-    this.axios
-      .post('http://localhost:3000',{ a: 1 })
-      .then(resp => this.x=resp.data.count)
+    this
+      .axios
+      .post(
+        'http://localhost:3000',
+        {
+          a: 1
+        }
+      )
+      .then(
+        resp => this
+                  .x = resp
+                        .data
+                        .count
+      )
   },
   computed: {
     gombhtml() {
       return `<b-button variant = "${
-          this.vt[
-            this.x % this.vt.length
+        this
+          .vt[
+            this
+              .x % this
+                    .vt
+                    .length
           ]
       }">Gomb ${
-          this.x % this.vt.length
+          this
+            .x % this
+                  .vt
+                  .length
       }</b-button>`
     }
   }
