@@ -3,7 +3,8 @@ var bodyParser = require('body-parser')
 const app = express()
 app.use(express.static('dist'))
 app.use(bodyParser.json())
-/* //use this on development mode
+
+//use this only in development mode!
 app.use( (req, res, next) => {
   res.header(
     'Access-Control-Allow-Origin',
@@ -14,7 +15,9 @@ app.use( (req, res, next) => {
     'Origin, X-Requested-With, Content-Type, Accept'
   )
   next()
-})*/
+} )
+//do nor use it in production mode!
+
 var counter = 0
 app.post(
   '/',

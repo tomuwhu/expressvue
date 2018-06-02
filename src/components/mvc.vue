@@ -21,6 +21,10 @@
     <h2>{{
       x
     }}</h2>
+    <div v-if = "error"
+         style= "color:red;">
+      Nincs szerverkommunikáció!
+    </div>
   </div>
 </template>
 
@@ -30,6 +34,7 @@ export default {
   data() {
     return {
       x: 1,
+      error: '',
       vt: [
         'primary',
         'secondary',
@@ -57,13 +62,18 @@ export default {
                 a: 1
               }
             )
-            .then(
-              resp =>
+            .then( resp => {
+                this
+                  .error = ''
                 this
                   .x = resp
                         .data
                         .count
-            )
+            } )
+            .catch( err => {
+              this.error = err
+              this.x++
+            }  )
     }
   },
   mounted() {
