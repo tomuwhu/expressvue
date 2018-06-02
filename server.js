@@ -4,13 +4,12 @@ const app = express()
 const sql = require('mysql').createConnection({
       host     : 'localhost',
       user     : 'root',
-      password : 'Cham1ss0',
+      password : '',
       database : 'test'
 })
 
 app.use( express.static('dist') )
 app.use( bodyParser.json() )
-
 
 sql.connect( error => {
     if (error) console.log('MySQL Kapcsolódás sikertelen!')

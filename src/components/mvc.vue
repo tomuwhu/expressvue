@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
     <a href  = "https://bootstrap-vue.js.org/docs/components/button"
-       target= "_blank">Bootstrap</a>
+       target= "_blank">Bootstrap</a> -
+    <a href="/mysqltest"
+       target= "_blank">MySQL teszt</a>
     <h1>{{
       msg
     }}</h1><hr>
