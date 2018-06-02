@@ -4,14 +4,9 @@
       msg
     }}</h1><hr>
     <div>
-      <b-button
-        :variant =
-          "vt[x % vt.length]"
-        @click =
-          "send()"
-      >Gomb {{
-         x % vt
-              .length
+      <b-button :variant = "vt[x % vt.length]"
+                @click   = "send()">Gomb {{
+         x % vt.length
       }}</b-button>
     </div><hr>
     <pre><code>{{
@@ -22,9 +17,7 @@
       x
     }}</h2>
     <div v-if = "error"
-         style= "color:red;">
-      Nincs szerverkommunikáció!
-    </div>
+         style= "color:red;">Nincs szerverkommunikáció!</div>
   </div>
 </template>
 
@@ -61,12 +54,8 @@ export default {
               { a: 1 }
             )
             .then( resp => {
-                this
-                  .error = ''
-                this
-                  .x = resp
-                        .data
-                        .count
+              this.error = ''
+              this.x = resp.data.count
             } )
             .catch( err => {
               this.error = err
@@ -81,24 +70,17 @@ export default {
             { a: 1 }
           )
           .then(
-            resp =>
-              this.x = resp
-                        .data
-                        .count
+            resp => this.x = resp.data.count
           )
   },
   computed: {
     gombhtml() {
       return `<b-button variant = "${
         this.vt[
-            this.x % this
-                      .vt
-                      .length
+            this.x % this.vt.length
           ]
       }">Gomb ${
-          this.x % this
-                    .vt
-                    .length
+          this.x % this.vt.length
       }</b-button>`
     }
   }
