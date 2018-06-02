@@ -50,54 +50,49 @@ export default {
   },
   methods: {
     send() {
-      this
-        .axios
-        .post(
-          'http://localhost:3000',
-          {
-            a: 1
-          }
-        )
-        .then(
-          resp =>
-            this
-              .x = resp
-                    .data
-                    .count
-        )
-    }
-  },
-  mounted() {
-    this
-      .axios
-      .post(
-        'http://localhost:3000',
-        {
-          a: 1
-        }
-      )
-      .then(
-        resp => this
+      this.axios
+            .post(
+              'http://localhost:3000',
+              {
+                a: 1
+              }
+            )
+            .then(
+              resp =>
+                this
                   .x = resp
                         .data
                         .count
-      )
+            )
+    }
+  },
+  mounted() {
+    this.axios
+          .post(
+            'http://localhost:3000',
+            {
+              a: 1
+            }
+          )
+          .then(
+            resp =>
+              this.x = resp
+                        .data
+                        .count
+          )
   },
   computed: {
     gombhtml() {
       return `<b-button variant = "${
-        this
-          .vt[
-            this
-              .x % this
-                    .vt
-                    .length
+        this.vt[
+            this.x % this
+                      .vt
+                      .length
           ]
       }">Gomb ${
-          this
-            .x % this
-                  .vt
-                  .length
+          this.x % this
+                    .vt
+                    .length
       }</b-button>`
     }
   }
