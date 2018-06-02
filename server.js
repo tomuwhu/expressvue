@@ -1,6 +1,7 @@
 const express = require('express')
 var bodyParser = require('body-parser')
 const app = express()
+app.use(express.static('dist'))
 app.use(bodyParser.json())
 app.use( (req, res, next) => {
   res.header(
@@ -20,14 +21,6 @@ app.post(
     res.send({count: ++counter})
   }
 )
-
-app.get(
-  '/',
-  (req, res) => {
-    res.send( { a: 'GET Access' } )
-  }
-)
-
 app.listen(
   3000,
   () => console.log(
