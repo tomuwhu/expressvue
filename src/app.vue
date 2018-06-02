@@ -5,8 +5,7 @@
 </template>
 
 <script>
-import mvc from './components/index.vue'
-
+import mvc from './components/mvc.vue'
 export default {
   name: 'app',
   components: {

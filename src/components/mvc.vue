@@ -7,7 +7,7 @@
     </div><hr>
     <pre><code>{{ gombhtml }}</code></pre>
     <hr>
-    {{ x }}
+    <h2>{{ x }}</h2>
   </div>
 </template>
 
@@ -68,5 +68,10 @@ h1 {
 }
 a {
   color: #42b983;
+}
+pre {
+  color :white;
+  background-color: #100501;
+  padding: 20px;
 }
 </style>
