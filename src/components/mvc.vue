@@ -58,9 +58,7 @@ export default {
       this.axios
             .post(
               'http://localhost:3000',
-              {
-                a: 1
-              }
+              { a: 1 }
             )
             .then( resp => {
                 this
@@ -80,9 +78,7 @@ export default {
     this.axios
           .post(
             'http://localhost:3000',
-            {
-              a: 1
-            }
+            { a: 1 }
           )
           .then(
             resp =>
