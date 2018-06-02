@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'mvc',
   data() {
@@ -38,13 +37,13 @@ export default {
   },
   methods: {
     send() {
-      axios
+      this.axios
         .post('http://localhost:3000',{ a: 1 })
         .then(resp => this.x=resp.data.count)
     }
   },
   mounted() {
-    axios
+    this.axios
       .post('http://localhost:3000',{ a: 1 })
       .then(resp => this.x=resp.data.count)
   },
