@@ -4,7 +4,7 @@ const app = express()
 const sql = require('mysql').createConnection({
       host     : 'localhost',
       user     : 'root',
-      password : '',
+      password : 'Cham1ss0',
       database : 'test'
 })
 
@@ -12,7 +12,10 @@ app.use( express.static('dist') )
 app.use( bodyParser.json() )
 
 
-sql.connect(error => console.log('MySQL Kapcsolódás sikertelen!'))
+sql.connect( error => {
+    if (error) console.log('MySQL Kapcsolódás sikertelen!')
+    else console.log('MySQL szerver rendben.')
+} )
 
 //use this only in development mode!
 app.use( (req, res, next) => {
@@ -55,6 +58,6 @@ app.get(
 app.listen(
     3000,
     () => console.log(
-          'Back-end server listening on port 3000!'
+          'Back-end szerver elérhető a http://localhost:3000 webcímen'
     )
 )
