@@ -3,7 +3,7 @@ var bodyParser = require('body-parser')
 const app = express()
 app.use(express.static('dist'))
 app.use(bodyParser.json())
-/* //use dis on development mode
+/* //use this on development mode
 app.use( (req, res, next) => {
   res.header(
     'Access-Control-Allow-Origin',
