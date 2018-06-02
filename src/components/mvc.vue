@@ -1,12 +1,15 @@
 <template>
   <div class="hello">
+    <a href  = "https://bootstrap-vue.js.org/docs/components/button"
+       target= "_blank">Bootstrap</a>
     <h1>{{
       msg
     }}</h1><hr>
     <div>
       <b-button :variant = "vt[x % vt.length]"
+                :size    = "st[x % st.length]"
                 @click   = "send()">Gomb {{
-         x % vt.length
+         x
       }}</b-button>
     </div><hr>
     <pre><code>{{
@@ -40,6 +43,11 @@ export default {
         'outline-success',
         'outline-warning',
         'outline-danger'
+      ],
+      st: [
+        'sm',
+        '',
+        'lg'
       ]
     }
   },
@@ -75,12 +83,17 @@ export default {
   },
   computed: {
     gombhtml() {
+      var sf = this.st[
+          this.x % this.st.length
+      ]
       return `<b-button variant = "${
         this.vt[
             this.x % this.vt.length
-          ]
-      }">Gomb ${
-          this.x % this.vt.length
+        ]
+      }"${
+         sf ? ` size = "`+sf+`"` : ``
+      }>Gomb ${
+          this.x
       }</b-button>`
     }
   }
