@@ -18,12 +18,12 @@
 > npm test
 ```
 
-#### Vue-CLI development
+#### Vue development
 ```
 > npm run serve
 ```
 
-#### Vue-CLI build
+#### Vue build
 ```
 > npm run build
 ```
